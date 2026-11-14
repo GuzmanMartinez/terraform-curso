@@ -4,3 +4,9 @@ resource "aws_instance" "public_instance"{
     subnet_id      = aws_subnet.public_subnet.id
     key_name = data.aws_key_pair.key.key_name
 }
+
+#lifecycle {
+#    replace_triggered_by = [
+#        aws_subnet.private_subnet.id
+#    ]
+#}
