@@ -12,3 +12,5 @@ tags = {
     "IAC_Version"  = "1.12.2"
 
 }
+
+sg_ingress_cidr = "0.0.0.0/0"
