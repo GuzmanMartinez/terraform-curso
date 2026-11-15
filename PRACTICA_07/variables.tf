@@ -24,7 +24,11 @@ variable "ec2_specs" {
     type        = map(string)
 }
 
+variable "enable_monitoring"{
+    description ="Habilita el despliegue de un servidor de monitorieo"
+    type = number
 
+}
 
 
 
