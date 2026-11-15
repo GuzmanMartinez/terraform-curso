@@ -1,7 +1,7 @@
 resource "aws_vpc" "vpc_europe" {
   cidr_block = var.europe_cidr
   tags = { 
-    "Name" = "VPC_Europe"
+    "Name" = "VPC_Europe-${local.sufix}"
   }
 
   #tags = var.tags
@@ -12,7 +12,7 @@ resource "aws_subnet" "public_subnet" {
   cidr_block = var.subnets[0]
   map_public_ip_on_launch = true
   tags = { 
-    "Name" = "public_subnet"
+    "Name" = "public_subnet-${local.sufix}"
   }
 
   #tags = var.tags
@@ -22,7 +22,7 @@ resource "aws_subnet" "private_subnet" {
   vpc_id = aws_vpc.vpc_europe.id
   cidr_block = var.subnets[1]
   tags = { 
-    "Name" = "private_subnet"
+    "Name" = "private_subnet-${local.sufix}"
   }
 
   depends_on = [
@@ -36,7 +36,7 @@ resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.vpc_europe.id
 
   tags = {
-    Name = "igv vpc europe"
+    Name = "igv vpc europe-${local.sufix}"
   }
 }
 
@@ -49,7 +49,7 @@ resource "aws_route_table" "public_crt" {
   }
 
   tags = {
-    Name = "Public CRT"
+    Name = "Public CRT-${local.sufix}"
   }
 }
 
@@ -81,6 +81,6 @@ resource "aws_security_group" "sg_public_instance" {
   }
 
   tags = {
-    Name = "Public instance SG"
+    Name = "Public instance SG-${local.sufix}"
   }
 }

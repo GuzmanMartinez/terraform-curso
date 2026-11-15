@@ -8,8 +8,10 @@ tags = {
     "env"          = "dev"
     "owner"        = "guzman"
     "cloud"        = "AWS"
-    "IAC"           = "Terraform"
+    "IAC"          = "Terraform"
     "IAC_Version"  = "1.12.2"
+    "project"      = "cerberus"
+    "region"       = "GuzRegion"
 
 }
 
